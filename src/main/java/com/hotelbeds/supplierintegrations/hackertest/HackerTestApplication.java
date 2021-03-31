@@ -1,13 +1,13 @@
-package com.hotelbeds.supplierintegrations.hackertest.detector;
+package com.hotelbeds.supplierintegrations.hackertest;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class HackerDetectionApplication {
+public class HackerTestApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(HackerDetectionApplication.class, args);
+		SpringApplication.run(HackerTestApplication.class, args);
 	}
 
 }

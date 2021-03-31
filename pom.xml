@@ -8,8 +8,8 @@
 		<version>2.4.4</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>package.com.hotelbeds.supplierintegrations.hackertest.detector</groupId>
-	<artifactId>hackerDetection</artifactId>
+	<groupId>package.com.hotelbeds.supplierintegrations</groupId>
+	<artifactId>hackerTest</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>hackerDetection</name>
 	<description>Demo project for Spring Boot</description>
