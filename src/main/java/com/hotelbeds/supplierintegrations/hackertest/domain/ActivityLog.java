@@ -19,7 +19,7 @@ public class ActivityLog {
     private Timestamp date;
 
     @Column
-    private String action;
+    private LogAction action;
 
     @Column
     private String username;
@@ -48,11 +48,11 @@ public class ActivityLog {
         this.date = date;
     }
 
-    public String getAction() {
+    public LogAction getAction() {
         return action;
     }
 
-    public void setAction(String action) {
+    public void setAction(LogAction action) {
         this.action = action;
     }
 
