@@ -7,7 +7,6 @@ import java.sql.Timestamp;
 @Table(name = "super_hero")
 public class ActivityLog {
 
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

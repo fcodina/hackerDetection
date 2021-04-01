@@ -21,7 +21,7 @@ public class ExcessiveFailedLoginDetectionMethod implements DetectionMethod {
     @Override
     public boolean detectError(ActivityLog activityLog) {
         Timestamp fiveMinutesBefore = new Timestamp(activityLog.getDate().getTime() - MILLIS_BEFORE_LAST_LOGIN);
-        if(activityLogService.countByActionAndDateAfter(LogAction.SIGNIN_FAILURE, fiveMinutesBefore) >= NUMBER_FAILED_LOGIN) {
+        if(activityLogService.countByActionAndDateGreaterThanEqual(LogAction.SIGNIN_FAILURE, fiveMinutesBefore) >= NUMBER_FAILED_LOGIN) {
             return true;
         }
         return false;

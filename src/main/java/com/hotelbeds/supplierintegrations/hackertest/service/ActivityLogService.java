@@ -41,7 +41,7 @@ public class ActivityLogService {
         this.activityLogRepository.deleteById(id);
     }
 
-    public long countByActionAndDateAfter(LogAction action, Timestamp date) {
-        return activityLogRepository.countByActionAndDateAfter(action, date);
+    public long countByActionAndDateGreaterThanEqual(LogAction action, Timestamp date) {
+        return activityLogRepository.countByActionAndDateGreaterThanEqual(action, date);
     }
 }
