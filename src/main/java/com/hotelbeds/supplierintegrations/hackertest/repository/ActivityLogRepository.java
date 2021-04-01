@@ -10,5 +10,5 @@ import java.sql.Timestamp;
 @Repository
 public interface ActivityLogRepository extends JpaRepository<ActivityLog, Long> {
 
-    long countByActionAndDateBefore(LogAction action, Timestamp date);
+    long countByActionAndDateAfter(LogAction action, Timestamp date);
 }

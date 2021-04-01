@@ -43,7 +43,6 @@ public class HackerDetectorImpl implements HackerDetector {
 
         ActivityLog activityLog = new ActivityLog();
         activityLog.setIp(lineFields[0]);
-
         Timestamp date = Timestamp.from(Instant.ofEpochMilli(Long.valueOf(lineFields[1])));
         activityLog.setDate(date);
         activityLog.setAction(LogAction.valueOf(lineFields[2]));
