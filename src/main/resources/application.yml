@@ -1,4 +1,10 @@
+server:
+  port: 9002
+
 spring:
+
+  application:
+    name: Hacker Test Application
 
   # Database Settings #
   datasource:
