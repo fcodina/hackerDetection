@@ -29,7 +29,7 @@ public class TimeCalculatorController {
     @GetMapping("/calculate-time")
     public ResponseEntity<Long> getCalculateTime(@RequestParam(value = "time1", required = true) String time1,
                                                  @RequestParam(value = "time2", required = true) String time2) {
-        log.debug("REST request to get a page of SuperHeroes");
+        log.debug("REST request to calculate the time between {} and {}", time1, time2);
         try {
             Long result = TimeCalculator.getMinutesBetween(time1, time2);
             return ResponseEntity.ok().body(result);

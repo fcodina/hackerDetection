@@ -1,5 +1,6 @@
 package com.hotelbeds.supplierintegrations.hackertest.detector;
 
+import com.hotelbeds.supplierintegrations.hackertest.TestUtils;
 import com.hotelbeds.supplierintegrations.hackertest.domain.LogAction;
 import com.hotelbeds.supplierintegrations.hackertest.repository.ActivityLogRepository;
 import org.junit.jupiter.api.Assertions;
@@ -35,11 +36,11 @@ public class HackerDetectorImplTest {
     @Test
     public void testParseLinesSigninSuccess() {
         Instant date = Instant.now();
-        String line1 = getLine(date.minus(5, ChronoUnit.MINUTES), LogAction.SIGNIN_SUCCESS);
-        String line2 = getLine(date.minus(4, ChronoUnit.MINUTES), LogAction.SIGNIN_SUCCESS);
-        String line3 = getLine(date.minus(3, ChronoUnit.MINUTES), LogAction.SIGNIN_SUCCESS);
-        String line4 = getLine(date.minus(2, ChronoUnit.MINUTES), LogAction.SIGNIN_SUCCESS);
-        String line5 = getLine(date.minus(0, ChronoUnit.MINUTES), LogAction.SIGNIN_SUCCESS);
+        String line1 = TestUtils.getLine(date.minus(5, ChronoUnit.MINUTES), LogAction.SIGNIN_SUCCESS);
+        String line2 = TestUtils.getLine(date.minus(4, ChronoUnit.MINUTES), LogAction.SIGNIN_SUCCESS);
+        String line3 = TestUtils.getLine(date.minus(3, ChronoUnit.MINUTES), LogAction.SIGNIN_SUCCESS);
+        String line4 = TestUtils.getLine(date.minus(2, ChronoUnit.MINUTES), LogAction.SIGNIN_SUCCESS);
+        String line5 = TestUtils.getLine(date.minus(0, ChronoUnit.MINUTES), LogAction.SIGNIN_SUCCESS);
 
         String result = hackerDetectorImpl.parseLine(line1);
         Assertions.assertNull(result);
@@ -56,11 +57,11 @@ public class HackerDetectorImplTest {
     @Test
     public void testParseLinesSigninFailureWithMoreThan5minutes() {
         Instant date = Instant.now();
-        String line1 = getLine(date.minus(6, ChronoUnit.MINUTES), LogAction.SIGNIN_FAILURE);
-        String line2 = getLine(date.minus(4, ChronoUnit.MINUTES), LogAction.SIGNIN_FAILURE);
-        String line3 = getLine(date.minus(3, ChronoUnit.MINUTES), LogAction.SIGNIN_FAILURE);
-        String line4 = getLine(date.minus(2, ChronoUnit.MINUTES), LogAction.SIGNIN_FAILURE);
-        String line5 = getLine(date.minus(0, ChronoUnit.MINUTES), LogAction.SIGNIN_FAILURE);
+        String line1 = TestUtils.getLine(date.minus(6, ChronoUnit.MINUTES), LogAction.SIGNIN_FAILURE);
+        String line2 = TestUtils.getLine(date.minus(4, ChronoUnit.MINUTES), LogAction.SIGNIN_FAILURE);
+        String line3 = TestUtils.getLine(date.minus(3, ChronoUnit.MINUTES), LogAction.SIGNIN_FAILURE);
+        String line4 = TestUtils.getLine(date.minus(2, ChronoUnit.MINUTES), LogAction.SIGNIN_FAILURE);
+        String line5 = TestUtils.getLine(date.minus(0, ChronoUnit.MINUTES), LogAction.SIGNIN_FAILURE);
 
         String result = hackerDetectorImpl.parseLine(line1);
         Assertions.assertNull(result);
@@ -77,11 +78,11 @@ public class HackerDetectorImplTest {
     @Test
     public void testParseLinesSigninFailureError() {
         Instant date = Instant.now();
-        String line1 = getLine(date.minus(5, ChronoUnit.MINUTES), LogAction.SIGNIN_FAILURE);
-        String line2 = getLine(date.minus(4, ChronoUnit.MINUTES), LogAction.SIGNIN_FAILURE);
-        String line3 = getLine(date.minus(3, ChronoUnit.MINUTES), LogAction.SIGNIN_FAILURE);
-        String line4 = getLine(date.minus(2, ChronoUnit.MINUTES), LogAction.SIGNIN_FAILURE);
-        String line5 = getLine(date.minus(0, ChronoUnit.MINUTES), LogAction.SIGNIN_FAILURE);
+        String line1 = TestUtils.getLine(date.minus(5, ChronoUnit.MINUTES), LogAction.SIGNIN_FAILURE);
+        String line2 = TestUtils.getLine(date.minus(4, ChronoUnit.MINUTES), LogAction.SIGNIN_FAILURE);
+        String line3 = TestUtils.getLine(date.minus(3, ChronoUnit.MINUTES), LogAction.SIGNIN_FAILURE);
+        String line4 = TestUtils.getLine(date.minus(2, ChronoUnit.MINUTES), LogAction.SIGNIN_FAILURE);
+        String line5 = TestUtils.getLine(date.minus(0, ChronoUnit.MINUTES), LogAction.SIGNIN_FAILURE);
 
         String result = hackerDetectorImpl.parseLine(line1);
         Assertions.assertNull(result);
@@ -95,11 +96,5 @@ public class HackerDetectorImplTest {
         Assertions.assertEquals("80.238.9.179", result);
     }
 
-    private String getLine(Instant date, LogAction logAction) {
-        return new StringBuilder("80.238.9.179,")
-                .append(date.toEpochMilli())
-                .append(",")
-                .append(logAction.name())
-                .append(",Will.Smith").toString();
-    }
+
 }
